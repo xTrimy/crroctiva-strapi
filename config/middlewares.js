@@ -13,7 +13,16 @@ module.exports = [
       },
     },
   },
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      enabled: false,
+      origin: ['*'],
+      expose: ['WWW-Authenticate', 'Server-Authorization'],
+      maxAge: 300,
+      optionsSuccessStatus: 200,
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
