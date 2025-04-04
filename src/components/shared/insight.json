@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_insights",
+  "info": {
+    "displayName": "Insight",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "integer"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
