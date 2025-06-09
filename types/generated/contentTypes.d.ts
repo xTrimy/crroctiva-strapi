@@ -518,6 +518,7 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
 export interface ApiGeneralGeneral extends Schema.SingleType {
   collectionName: 'generals';
   info: {
+    description: '';
     displayName: 'General';
     pluralName: 'generals';
     singularName: 'general';
@@ -552,6 +553,13 @@ export interface ApiGeneralGeneral extends Schema.SingleType {
         };
       }>;
     siteDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    siteTitle: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
