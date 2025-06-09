@@ -515,6 +515,59 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
   };
 }
 
+export interface ApiGeneralGeneral extends Schema.SingleType {
+  collectionName: 'generals';
+  info: {
+    displayName: 'General';
+    pluralName: 'generals';
+    singularName: 'general';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::general.general',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::general.general',
+      'oneToMany',
+      'api::general.general'
+    >;
+    logo: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    siteDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::general.general',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Schema.SingleType {
   collectionName: 'homes';
   info: {
@@ -1288,6 +1341,7 @@ declare module '@strapi/types' {
       'api::about.about': ApiAboutAbout;
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::general.general': ApiGeneralGeneral;
       'api::home.home': ApiHomeHome;
       'api::our-work-page.our-work-page': ApiOurWorkPageOurWorkPage;
       'api::partner.partner': ApiPartnerPartner;
