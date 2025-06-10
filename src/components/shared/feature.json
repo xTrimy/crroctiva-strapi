@@ -2,7 +2,8 @@
   "collectionName": "components_shared_features",
   "info": {
     "displayName": "Feature",
-    "icon": "quote"
+    "icon": "quote",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -12,15 +13,16 @@
     },
     "content": {
       "type": "text",
-      "required": true
+      "required": true,
+      "maxLength": 500
     },
     "icon": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

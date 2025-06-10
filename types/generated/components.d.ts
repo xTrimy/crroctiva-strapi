@@ -3,11 +3,16 @@ import type { Attribute, Schema } from '@strapi/strapi';
 export interface SharedFeature extends Schema.Component {
   collectionName: 'components_shared_features';
   info: {
+    description: '';
     displayName: 'Feature';
     icon: 'quote';
   };
   attributes: {
-    content: Attribute.Text & Attribute.Required;
+    content: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
     icon: Attribute.Media<'images'> & Attribute.Required;
     name: Attribute.String & Attribute.Required;
   };
